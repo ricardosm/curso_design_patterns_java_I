@@ -7,11 +7,11 @@ public class InvestimentoArrojado implements Investimento {
 		double escolhido = new java.util.Random().nextDouble();
 		
 		if(escolhido <= 0.20) {
-			return conta.getSaldo() * 0.5;
+			return conta.getSaldo() * 0.05;
 		} else if (escolhido <= 0.50) {
-			return conta.getSaldo() * 0.3;
+			return conta.getSaldo() * 0.03;
 		} else {
-			return conta.getSaldo() * 0.06;
+			return conta.getSaldo() * 0.006;
 		}
 	}
 }

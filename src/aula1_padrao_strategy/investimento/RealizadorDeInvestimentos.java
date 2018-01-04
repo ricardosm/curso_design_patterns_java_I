@@ -7,7 +7,8 @@ public class RealizadorDeInvestimentos {
 		
 		retornoInvestimento = retornoInvestimento * 0.75;
 		
-		conta.adicionaInvestimento(retornoInvestimento);
+		conta.deposita(retornoInvestimento);
+        System.out.println("Novo saldo: " + conta.getSaldo());
 	}
 
 }

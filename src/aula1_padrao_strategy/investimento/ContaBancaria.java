@@ -12,7 +12,7 @@ public class ContaBancaria {
 		return saldo;
 	}
 	
-	public void adicionaInvestimento(double valor) {
+	public void deposita(double valor) {
 		this.saldo += valor;
 	}
 }

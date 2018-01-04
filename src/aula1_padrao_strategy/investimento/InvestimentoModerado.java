@@ -7,9 +7,9 @@ public class InvestimentoModerado implements Investimento {
 		boolean escolhido = new java.util.Random().nextDouble() < 0.50;
 		
 		if(escolhido) {
-			return conta.getSaldo() * 2.5;
+			return conta.getSaldo() * 0.025;
 		} else {
-			return conta.getSaldo() * 0.7;
+			return conta.getSaldo() * 0.007;
 		}
 	}
 }
