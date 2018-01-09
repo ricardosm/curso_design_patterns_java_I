@@ -1,5 +1,6 @@
 package aula4_padrao_decorator.aplicacaoBancaria;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -7,12 +8,12 @@ public class Conta {
 
 	private String nomeDoTitular;
 	private double saldo;
-	private Date dataAbertura;
+	private Calendar dataAbertura;
 
 	public Conta(String nomeDoTitular, double saldo) {
 		this.nomeDoTitular = nomeDoTitular;
 		this.saldo = saldo;
-		this.dataAbertura = new GregorianCalendar().getTime();
+		this.dataAbertura = GregorianCalendar.getInstance();
 	}
 
 	public String getNomeDoTitular() {
@@ -23,7 +24,7 @@ public class Conta {
 		return saldo;
 	}
 
-	public Date getDataAbertura() {
+	public Calendar getDataAbertura() {
 		return dataAbertura;
 	}
 

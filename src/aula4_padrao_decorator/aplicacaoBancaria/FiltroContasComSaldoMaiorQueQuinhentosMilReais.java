@@ -3,13 +3,13 @@ package aula4_padrao_decorator.aplicacaoBancaria;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FiltroContasComSaldoMenorQueCemReais extends Filtro {
+public class FiltroContasComSaldoMaiorQueQuinhentosMilReais extends Filtro {
 	
-	public FiltroContasComSaldoMenorQueCemReais(Filtro outroFiltro) {
+	public FiltroContasComSaldoMaiorQueQuinhentosMilReais(Filtro outroFiltro) {
 		super(outroFiltro);
 	}
 	
-	public FiltroContasComSaldoMenorQueCemReais() {
+	public FiltroContasComSaldoMaiorQueQuinhentosMilReais() {
 		super();
 	}
 	
@@ -17,7 +17,7 @@ public class FiltroContasComSaldoMenorQueCemReais extends Filtro {
 	public List<Conta> filtra(List<Conta> contas) {
 		List<Conta> novaListaContas = new ArrayList<>();
 		for(Conta conta : contas) {
-			if(conta.getSaldo() < 100.0) {
+			if(conta.getSaldo() > 500000.0) {
 				novaListaContas.add(conta);
 			}
 		}
