@@ -24,31 +24,31 @@ public class NotaFiscal {
 		this.observacoes = observacoes;
 	}
 
-	public Object getRazaoSical() {
+	public String getRazaoSical() {
 		return razaoSical;
 	}
 
-	public Object getCnpj() {
+	public String getCnpj() {
 		return cnpj;
 	}
 
-	public Object getDataDeEmissao() {
+	public Calendar getDataDeEmissao() {
 		return dataDeEmissao;
 	}
 
-	public Object getValorBruto() {
+	public double getValorBruto() {
 		return valorBruto;
 	}
 
-	public Object getImpostos() {
+	public double getImpostos() {
 		return impostos;
 	}
 
-	public Object getItens() {
+	public List<ItemDaNota> getItens() {
 		return itens;
 	}
 
-	public Object getObservacoes() {
+	public String getObservacoes() {
 		return observacoes;
 	}
 

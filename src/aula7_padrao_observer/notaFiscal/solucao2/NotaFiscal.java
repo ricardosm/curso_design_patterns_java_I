@@ -1,4 +1,4 @@
-package aula6_padrao_builder.notaFiscal.problema;
+package aula7_padrao_observer.notaFiscal.solucao2;
 
 import java.util.Calendar;
 import java.util.List;

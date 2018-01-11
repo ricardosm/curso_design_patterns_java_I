@@ -1,4 +1,4 @@
-package aula7_padrao_observer.notaFiscal.problema;
+package aula7_padrao_observer.notaFiscal.solucao1;
 
 /*
  * 

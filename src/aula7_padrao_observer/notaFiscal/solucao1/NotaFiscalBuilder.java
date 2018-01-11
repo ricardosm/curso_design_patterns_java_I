@@ -1,32 +1,31 @@
-package aula7_padrao_observer.notaFiscal.problema;
+package aula7_padrao_observer.notaFiscal.solucao1;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 /*
- * Imagine que, após o processo de geração de notas fiscais de um sistema,
- *  ainda é necessário enviar a nota fiscal por e-mail para o cliente,
- *  salvar no banco de dados, enviar por SMS e ainda imprimi-la.
- *  
- *  Em uma implementação mais tradicional teríamos, logo após o processo
- *  de geração da nota fiscal, uma sequência de métodos que fariam cada 
- *  uma das atividades. 
- *  
- *  Podemos implementar cada uma dessas atividades em métodos privados,
- *  dentro da classe NotaFiscalBuilder, que é a responsável por gerar
- *  a NotaFiscal.
- *  
- *  Problema: Esse código apresenta muitos problemas. O primeiro deles 
- *  é que essa classe já é complexa, e sua complexidade só tende a piorar. 
- *  Ela faz muitas coisas diferentes: manda e-mail, persiste no banco de dados, 
- *  e assim por diante.
- *  
+ 
  *  Solução 1: Uma primeira melhoria nele seria extrair as responsabilidades 
  *  para diferentes classes. Ou seja, uma classe responsável somente por 
  *  persistir no banco de dados, uma somente responsável por enviar e-mails
  *  e assim por diante. E, por fim, o NotaFiscalBuilder, ao invés de conter 
  *  todo o código, reutilizar o código escrito nessas classes especialistas.
+ *  
+ *  Considerações: Melhoramos o código. As classes EnviadorDeEmail, 
+ *  NotaFiscalDao, EnviadorDeSms, e Impressora agora tem somente uma 
+ *  única responsabilidade.
+ *  
+ *  Problema 2: O método constroi() utiliza muitas outras classes para 
+ *  realizar sua tarefa. Ele é altamente acoplado a essas classes!
+ *  
+ *  Solução 2: A grande questão é como diminuir o acoplamento entre o 
+ *  método constroi(), que precisa invocar essa lista de ações, e as 
+ *  classes que realizam essas ações?
+ *  Para começar, vamos encontrar algo em comum entre todas as ações que 
+ *  acontecem após a nota ser gerada: todas elas fazem algo com a Nota Fiscal 
+ *  logo após ela ser gerada. Podemos então criar uma interface para 
+ *  representar esse comportamento em comum.
  */
 
 public class NotaFiscalBuilder {
@@ -73,38 +72,12 @@ public class NotaFiscalBuilder {
 	public NotaFiscal constroi() {
 		NotaFiscal notaFiscal = new NotaFiscal(razaoSocial, cnpj, data, valorBruto, impostos, itens, observacoes);
 		
-		enviaPorEmail(notaFiscal);
-		salvaNoBanco(notaFiscal);
-		enviaPorSMS(notaFiscal);
-		imprime(notaFiscal);
+		new EnviadorDeEmail().enviaPorEmail(notaFiscal);
+		new NotaFiscalDAO().salvaNoBanco(notaFiscal);
+		new EnviadorDeSMS().enviaPorSMS(notaFiscal);
+		new Impressora().imprime(notaFiscal);
 		
 		return notaFiscal;
 	}
 	
-	private void enviaPorEmail(NotaFiscal notaFiscal) {
-		System.out.println("Enviando por e-mail...");
-	}
-	
-	private void salvaNoBanco(NotaFiscal notaFiscal) {
-		System.out.println("Salvando no banco de dados...");
-	}
-	
-	private void enviaPorSMS(NotaFiscal notaFiscal) {
-		System.out.println("Enviando por SMS...");
-	}
-	
-	private void imprime(NotaFiscal notaFiscal) {
-		System.out.println("Imprimindo NotaFiscal...");
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		
 }

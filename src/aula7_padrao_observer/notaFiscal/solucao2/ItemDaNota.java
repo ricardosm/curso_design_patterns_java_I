@@ -1,4 +1,4 @@
-package aula7_padrao_observer.notaFiscal.solucao;
+package aula7_padrao_observer.notaFiscal.solucao2;
 
 public class ItemDaNota {
 
