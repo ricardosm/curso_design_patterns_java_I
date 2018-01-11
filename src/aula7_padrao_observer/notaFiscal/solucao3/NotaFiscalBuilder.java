@@ -1,4 +1,4 @@
-package aula7_padrao_observer.notaFiscal.solucao2;
+package aula7_padrao_observer.notaFiscal.solucao3;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -30,6 +30,11 @@ public class NotaFiscalBuilder {
 	public NotaFiscalBuilder() {
 		this.itens = new ArrayList<>();
 		this.acoes = new ArrayList<>();
+	}
+	
+	public NotaFiscalBuilder(List<AcaoAposGerarNota> acoes) {
+		this.acoes = acoes;
+		this.itens = new ArrayList<>();
 	}
 	
 	public NotaFiscalBuilder paraEmpresa(String razaoSocial) {

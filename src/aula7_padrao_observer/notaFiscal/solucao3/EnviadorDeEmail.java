@@ -1,4 +1,4 @@
-package aula7_padrao_observer.notaFiscal.solucao2;
+package aula7_padrao_observer.notaFiscal.solucao3;
 
 public class EnviadorDeEmail implements AcaoAposGerarNota {
 
